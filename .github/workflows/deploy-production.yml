@@ -26,9 +26,9 @@ jobs:
 
       - name: Copy files
         run: |
-          rsync -ra --delete replay/* root@${{ secrets.PRODUCTION_HOST }}:var/apps/replay/replay
-          rsync -ra manage.py root@${{ secrets.PRODUCTION_HOST }}:var/apps/replay/manage.py
-          rsync -ra requirements.txt root@${{ secrets.PRODUCTION_HOST }}:var/apps/replay/requirements.txt
+          rsync -ra --delete replay/* root@${{ secrets.PRODUCTION_HOST }}:/var/apps/replay/replay
+          rsync -ra manage.py root@${{ secrets.PRODUCTION_HOST }}:/var/apps/replay/manage.py
+          rsync -ra requirements.txt root@${{ secrets.PRODUCTION_HOST }}:/var/apps/replay/requirements.txt
 
       - name: Install packages
         run: ssh root@${{ secrets.PRODUCTION_HOST }} "cd var/apps/replay && source var/apps/replay/bin/activate && pip install -r requirements.txt"
