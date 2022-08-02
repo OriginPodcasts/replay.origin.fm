@@ -20,7 +20,8 @@ INSTALLED_APPS = (
     'replay.theme',
     'replay.front',
     'replay.feeds',
-    'replay.legal'
+    'replay.legal',
+    'replay.analytics'
 )
 
 MIDDLEWARE = [
