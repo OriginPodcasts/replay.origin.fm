@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    {% if blocked %}
+        <h1 class="mb-4">This feed cannot be rewound.</h1>
+        <p class="lead">This feed has been blocked from rewinding.</p>
+    {% else %}
+        <h1 class="mb-4">This feed doesn&rsquo;t appear to be valid.</h1>
+        <p class="lead">Please try an RSS feed URL or an Apple Podcasts URL, and make sure the feed has published items in it.</p>
+
+        <form action="{% url 'create_subscription' %}" method="post">
+            <div class="input-group mb-3">
+                <input name="url" type="url" placeholder="Apple Podcasts or RSS feed URL" aria-label="Apple Podcasts or RSS feed URL" aria-describedby="submit" class="form-control" value="{{ url }}" invalid autofocus required>
+                <button class="btn btn-primary" type="submit" id="submit">Rewind</button>
+            </div>
+
+            {% csrf_token %}
+        </form>
+    {% endif %}
+{% endblock main %}

@@ -1,0 +1,8 @@
+{
+    "name": "Replay",
+    "description": "Follow a podcast from its episode one. Relive episodes at their original cadence.",
+    "founder": {
+        "@type": "Person",
+        "@import": "front.mark"
+    }
+}

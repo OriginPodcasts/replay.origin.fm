@@ -1,0 +1,13 @@
+{
+    "name": "Mark Steadman",
+    "image": "https://secure.gravatar.com/avatar/6ce5fc8c522d26987d8aab31436582b4?s=512",
+    "givenName": "Mark",
+    "familyName": "Steadman",
+    "gender": "https://schema.org/Male",
+    "knowsAbout": "Podcasting",
+    "nationality": {
+        "@type": "Country",
+        "name": "United Kingdom"
+    },
+    "url": "https://marksteadman.com/"
+}

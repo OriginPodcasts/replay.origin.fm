@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load feeds humanize %}
+
+{% block pre_main %}
+    <section class="hero">
+        <div class="container">
+            <h1>{{ feed.feed.title }}</h1>
+            <div class="d-flex align-items-center">
+                <div class="p-2 feed-url">
+                    <code>{{ url }}</code>
+                </div>
+                <button class="btn btn-primary ms-1 flex-grow-1" type="button" data-clipboard-text="{{ url }}">
+                    <i class="fa fa-clipboard"></i>
+                </button>
+            </div>
+
+            <p class="mt-2">Use this feed URL to subscribe to the podcast in your favorite app.</p>
+        </div>
+    </section>
+{% endblock pre_main %}
+
+{% block main %}
+    <section class="my-4">
+        {% if feed.feed.description %}
+            <div data-aos="fade-up">{{ feed.feed.description|striptags|linebreaks|truncatewords:100 }}</div>
+        {% endif %}
+
+        <h2 class="mt-4" data-aos="fade-up">There {% if entries|length > 1 %}are{% else %}is{% endif %} <span class="text-primary">{{ entries|length|intcomma }}</span> entr{{ entries|length|pluralize:'y,ies' }} in this feed.</h2>
+        {% if entries|length > 10 %}<p data-aos="fade-up">Here are the first 10.</p>{% endif %}
+
+        {% for item in entries|slice:':10' %}
+            <div class="card shadow mt-4 mb-5" data-aos="fade-up">
+                <div class="card-header bg-dark">
+                    {% if item.link %}<a href="{{ item.link }}" target="_blank" class="text-light text-decoration-none">{% endif %}
+                    {{ item.title }}
+                    {% if item.link %}</a>{% endif %}
+                </div>
+                <div class="card-body">{{ item.description|striptags|linebreaks|truncatewords:50 }}</div>
+                <small class="card-footer">
+                    {% if item.published|isfuture %}
+                        Will appear in
+                        {{ item.published|emaildate|timeuntil }}
+                    {% else %}
+                        {{ item.published|emaildate|date:'jS F Y' }}
+                    {% endif %}
+                </small>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock main %}

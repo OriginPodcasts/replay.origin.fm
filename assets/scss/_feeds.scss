@@ -1,0 +1,26 @@
+@keyframes flashFeedURL {
+    from {
+        background: #F6F9D5;
+    }
+
+    to {
+        background: #fff;
+    }
+}
+
+.feed-url {
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background: #fff;
+
+    &, * {
+        user-select: all;
+        -webkit-user-select: all;
+    }
+
+    &.copied {
+        animation-name: flashFeedURL;
+        animation-duration: 1s;
+    }
+}

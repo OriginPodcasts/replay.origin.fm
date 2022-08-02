@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <section class="my-4">
+        <h1 class="mb-4" data-aos="fade-up">
+            <strong>Rewind</strong> a podcast from the beginning, then hear
+            episodes at the schedule the creator intended.
+        </h1>
+
+        <form action="{% url 'create_subscription' %}" method="post" data-aos="fade-up">
+            <div class="input-group mb-3">
+                <input name="url" type="url" placeholder="Apple Podcasts or RSS feed URL" aria-label="Apple Podcasts or RSS feed URL" aria-describedby="submit" class="form-control" autofocus required>
+                <button class="btn btn-primary" type="submit" id="submit">Rewind</button>
+            </div>
+
+            {% csrf_token %}
+        </form>
+
+        <div class="d-md-flex" data-aos="fade-up">
+            <p class="lead order-1">
+                Replay is a simple tool that takes a podcast feed and rewinds it
+                to the beginning, so episode one is sent to your device today.
+            </p>
+        </div>
+
+        <p data-aos="fade-up">
+            Subsequent episodes are then sent to your device at the release
+            cadence the creator intended. So if you subscribe to a daily podcast,
+            you&rsquo;ll get new episodes each day. Subscribe to a weekly podcast,
+            and they&rsquo;ll arrive weekly.
+        </p>
+
+        <p data-aos="fade-up">
+            This tool doesn&rsquo;t re-host content. The only thing we tamper with
+            is the publication date for each episode.
+        </p>
+    </section>
+{% endblock main %}

@@ -1,0 +1,10 @@
+.codekit-cache
+.DS_Store
+*.codekit3
+*.pyc
+/.coverage
+/.direnv
+/.envrc
+/db.sqlite
+/htmlcov
+/media

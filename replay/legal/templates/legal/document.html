@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% load markdown %}
+
+{% block main %}
+    <h1>{{ object.title }}</h1>
+    <div class="markdown">{{ object.body|markdown:'legal' }}</div>
+{% endblock main %}
