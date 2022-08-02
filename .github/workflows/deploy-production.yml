@@ -31,14 +31,14 @@ jobs:
           rsync -ra requirements.txt root@${{ secrets.PRODUCTION_HOST }}:/var/apps/replay/requirements.txt
 
       - name: Install packages
-        run: ssh root@${{ secrets.PRODUCTION_HOST }} "cd var/apps/replay && source var/apps/replay/bin/activate && pip install -r requirements.txt"
+        run: ssh root@${{ secrets.PRODUCTION_HOST }} "cd /var/apps/replay && source /var/apps/replay/bin/activate && pip install -r requirements.txt"
 
       - name: Migrate database
-        run: ssh root@${{ secrets.PRODUCTION_HOST }} "cd var/apps/replay && source var/apps/replay/.env && python manage.py migrate && python manage.py buildwatson"
+        run: ssh root@${{ secrets.PRODUCTION_HOST }} "cd /var/apps/replay && source /var/apps/replay/.env && python manage.py migrate && python manage.py buildwatson"
 
       - name: Collect static files
         run: |
-          ssh root@${{ secrets.PRODUCTION_HOST }} "cd var/apps/replay && source var/apps/replay/.env && python manage.py collectstatic --noinput"
+          ssh root@${{ secrets.PRODUCTION_HOST }} "cd /var/apps/replay && source /var/apps/replay/.env && python manage.py collectstatic --noinput"
           ssh root@${{ secrets.PRODUCTION_HOST }} "chown -R django:www-data /mnt/volume_lon1_10/replay/static/*"
           ssh root@${{ secrets.PRODUCTION_HOST }} "chmod -R 775 /mnt/volume_lon1_10/replay/static/*"
 
