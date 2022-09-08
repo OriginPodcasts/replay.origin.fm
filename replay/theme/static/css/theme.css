@@ -17809,7 +17809,7 @@ h1, .h1 {
   .menu-overlay a.nav-link, .menu-overlay a.menu-dismiss {
     color: #fff; }
     .menu-overlay a.nav-link.active, .menu-overlay a.menu-dismiss.active {
-      color: #5B305B; }
+      color: #FFF2D3; }
   .menu-overlay .secondary-item, .menu-overlay .tertiary-item {
     font-size: 1rem; }
   .menu-overlay a.menu-dismiss {
@@ -17831,13 +17831,21 @@ h1, .h1 {
     font-size: 1rem;
     font-weight: normal; }
 
+header .nav-pills .nav-link:hover {
+  text-decoration: underline; }
+
+header .nav-pills .nav-link.active {
+  background: transparent;
+  text-decoration: underline; }
+
 .hero {
   background: #FFF2D3;
   padding: calc(3rem + 6rem) 0 1rem 0;
   position: relative;
-  margin-top: -9rem; }
+  margin-top: -9rem;
+  margin-bottom: 3rem; }
   .hero.has-image {
-    margin-bottom: 50px;
+    margin-bottom: calc(50px + 3rem);
     padding-bottom: 0; }
     .hero.has-image img {
       position: relative;
@@ -17851,19 +17859,24 @@ h1, .h1 {
   @media (min-width: 768px) {
     .hero {
       margin-top: -6rem;
-      padding-bottom: 3rem; }
+      padding-bottom: 3rem;
+      border-bottom-left-radius: 70% 75px;
+      border-bottom-right-radius: 70% 75px; }
       .hero.has-image {
-        margin-bottom: 200px;
+        margin-bottom: calc(200px + 3rem);
         padding-bottom: 0; }
         .hero.has-image img {
           position: relative;
           margin: 0.5rem 0 -200px 0; }
       .hero.has-embed {
-        margin-bottom: 200px;
+        margin-bottom: calc(200px + 3rem);
         padding-bottom: 0; }
         .hero.has-embed .ratio {
           position: relative;
           margin: 0.5rem 0 -200px 0; } }
+  .hero h1, .hero .h1 {
+    font-weight: bold; }
+
 .mail-signup {
   background: #FFF2D3;
   padding: 3rem 0;
@@ -17876,6 +17889,30 @@ img.home-avatar {
     img.home-avatar {
       width: 120px;
       height: 120px; } }
+body.home .hero {
+  background: transparent;
+  padding: 0;
+  position: static;
+  margin: 0; }
+  body.home .hero h1, body.home .hero .h1 {
+    font-weight: normal; }
+
+@media (min-width: 768px) {
+  body.home .hero {
+    background: #5B305B url("../images/home-banner.jpg") no-repeat center;
+    background-size: cover;
+    padding: calc(3rem + 12rem) 0 calc(3rem + 3rem) 0;
+    margin-bottom: 3rem;
+    position: relative;
+    margin-top: -9rem;
+    color: #FFF2D3; }
+    body.home .hero strong {
+      color: #fff; }
+  body.home .nav-pills .nav-link {
+    color: #FFF2D3; }
+  body.home header svg path {
+    fill: #fff; } }
+
 .service-description ul {
   list-style-type: none !important;
   padding-left: 0 !important; }
