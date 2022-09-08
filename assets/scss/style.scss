@@ -1,2 +1,10 @@
-@import '../../origin.fm/assets/scss/style';
+@import '../../../../origin.fm/assets/scss/variables';
+@import '../../../../origin.fm/assets/vendor/bootstrap/scss/bootstrap';
+@import '../../../../origin.fm/assets/vendor/aos/src/sass/aos';
+@import '../../../../origin.fm/assets/vendor/audioplayer/audioplayer';
+@import '../../../../origin.fm/assets/vendor/font-awesome/fontawesome';
+@import '../../../../origin.fm/assets/vendor/font-awesome/regular';
+@import '../../../../origin.fm/assets/vendor/font-awesome/solid';
+@import '../../../../origin.fm/assets/vendor/font-awesome/brands';
+@import '../../../../origin.fm/assets/scss/theme';
 @import 'feeds';

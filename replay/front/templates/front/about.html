@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 {% load markdown %}
 
+{% block pre_main %}
+    <section class="hero">
+        <div class="container">
+            <h1 data-aos="fade-up">{{ object.title }}</h1>
+        </div>
+    </section>
+{% endblock pre_main %}
+
 {% block main %}
     <section class="my-4">
-        <h1 class="mb-4" data-aos="fade-up">{{ object.title }}</h1>
         <div class="markdown" data-aos="fade-up">{{ object.body|markdown }}</div>
     </section>
 {% endblock main %}
